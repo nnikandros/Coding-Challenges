@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func CalculateByteCount(name string) int {
+func CalculateByteCount(name string) (int, error) {
 
 	bytes, err := os.ReadFile(name)
 	if err != nil {
