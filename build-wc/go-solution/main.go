@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"slices"
 )
 
 func main() {
@@ -11,9 +12,12 @@ func main() {
 
 	arg := os.Args[1:]
 
-	fmt.Println(arg)
+	u := slices.Contains(arg, "-c")
+	fmt.Println(u)
+	// fmt.Println(arg)
 
 	// z := CalculateByteCount("/ec/local/home/nikanni/my-programming/coding-challeges/build-wc/test.txt")
+	z := CalculateByteCount(arg[1])
 
-	// fmt.Printf("%d", z)
+	fmt.Printf("%d", z)
 }
