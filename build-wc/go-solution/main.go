@@ -16,7 +16,10 @@ func main() {
 	// fmt.Println(arg)
 
 	// z := CalculateByteCount("/ec/local/home/nikanni/my-programming/coding-challeges/build-wc/test.txt")
-	z := CalculateByteCount(cli_args[1])
+	z, err := CalculateByteCount(cli_args[1])
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	fmt.Printf("%d", z)
 }

@@ -4,7 +4,7 @@ import "testing"
 
 func TestCalculateByteCount(t *testing.T) {
 	t.Run("absolute path", func(t *testing.T) {
-		got := CalculateByteCount("/ec/local/home/nikanni/my-programming/coding-challeges/build-wc/test.txt")
+		got, _ := CalculateByteCount("/ec/local/home/nikanni/my-programming/coding-challeges/build-wc/test.txt")
 
 		expected := 342190
 		assertCorrectResult(t, got, expected)
@@ -12,7 +12,7 @@ func TestCalculateByteCount(t *testing.T) {
 	})
 
 	t.Run("relative path", func(t *testing.T) {
-		got := CalculateByteCount("../build-wc/test.txt")
+		got, _ := CalculateByteCount("../build-wc/test.txt")
 
 		expected := 342190
 		assertCorrectResult(t, got, expected)
