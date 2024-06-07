@@ -12,8 +12,12 @@ func main() {
 	// Currently we assume we recieve only one argument.
 	cli_args := os.Args[1:]
 
-	u := Contains(cli_args, "-c")
-	fmt.Println(u)
+	// fmt.Println(cli_args)
+	// possibleFlags := map[string]bool{"-c": true, "-l": true, "-w": true, "-m": true}
+	// possibleFlags := []string{"-c", "-l", "-w", "-m"}
+
+	// u := Contains(cli_args, "-c")
+	// fmt.Println(u)
 
 	// z := CalculateByteCount("/ec/local/home/nikanni/my-programming/coding-challeges/build-wc/test.txt")
 	z, err := CalculateByteCount(cli_args[1])
