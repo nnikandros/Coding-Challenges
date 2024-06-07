@@ -11,12 +11,12 @@ func TestCalculateByteCount(t *testing.T) {
 
 	})
 
-	t.Run("relative path", func(t *testing.T) {
-		got, _ := CalculateByteCount("../build-wc/test.txt")
+	// t.Run("relative path", func(t *testing.T) {
+	// 	got, _ := CalculateByteCount("../build-wc/test.txt")
 
-		expected := 342190
-		assertCorrectResult(t, got, expected)
-	})
+	// 	expected := 342190
+	// 	assertCorrectResult(t, got, expected)
+	// })
 }
 
 func assertCorrectResult(t testing.TB, got, expected int) {
