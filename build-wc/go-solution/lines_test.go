@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -11,10 +10,10 @@ func TestCalculateLineCount(t *testing.T) {
 
 		got := CalculateLineCount("C:\\Users\\nnika\\Desktop\\projects\\coding-challenges\\build-wc\\test.txt")
 
-		fmt.Println(got)
+		// fmt.Println(got)
 
-		// expected := 7145
-		// assertCorrectResult(t, got, expected)
+		expected := 7145
+		assertCorrectResult(t, got, expected)
 	})
 
 }
