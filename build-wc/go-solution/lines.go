@@ -1,26 +1,26 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
-	"fmt"
 	"io"
 	"os"
 )
 
 func CalculateLineCount(name string) int {
 	file, _ := os.Open(name)
-	// fileScanner := bufio.NewScanner(file)
-	// lineCount := 0
-	// for fileScanner.Scan() {
-	// 	lineCount++
-	// }
-	// return lineCount
-	count, err := LineCounter(file)
-	if err != nil {
-		fmt.Printf("%v", err)
+	fileScanner := bufio.NewScanner(file)
+	lineCount := 0
+	for fileScanner.Scan() {
+		lineCount++
 	}
+	return lineCount
+	// count, err := LineCounter(file)
+	// if err != nil {
+	// 	fmt.Printf("%v", err)
+	// }
 
-	return count
+	// return count
 }
 
 func LineCounter(r io.Reader) (int, error) {

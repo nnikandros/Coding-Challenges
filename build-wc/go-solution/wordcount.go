@@ -1,7 +1,21 @@
 package main
 
-import "strings"
+import (
+	"bufio"
+	"os"
+)
 
-func CountWords(name string) []string {
-	return strings.Split(name, " ")
+func CountWords(name string) int {
+	file, _ := os.Open(name)
+	fileScanner := bufio.NewScanner(file)
+
+	fileScanner.Split(bufio.ScanWords)
+
+	// Count the words.
+	count := 0
+	for fileScanner.Scan() {
+		count++
+	}
+
+	return count
 }
