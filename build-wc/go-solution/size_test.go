@@ -1,10 +1,15 @@
 package main
 
-import "testing"
+import (
+	"os"
+	"path"
+	"path/filepath"
+	"testing"
+)
 
 func TestCalculateByteCount(t *testing.T) {
 	t.Run("absolute path", func(t *testing.T) {
-		got, _ := CalculateByteCount("/ec/local/home/nikanni/my-programming/coding-challeges/build-wc/test.txt")
+		got, _ := CalculateByteCount(pathToTestFile())
 
 		expected := 342190
 		assertCorrectResult(t, got, expected)
@@ -24,4 +29,10 @@ func assertCorrectResult(t testing.TB, got, expected int) {
 	if got != expected {
 		t.Errorf("got %d but expected %d", got, expected)
 	}
+}
+
+func pathToTestFile() string {
+	working_dir, _ := os.Getwd()
+	return filepath.Join(path.Dir(working_dir), "test.txt")
+
 }

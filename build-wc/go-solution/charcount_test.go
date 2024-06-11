@@ -1,10 +1,12 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestCountChars(t *testing.T) {
 
-	got := CountChars("C:\\Users\\nnika\\Desktop\\projects\\coding-challenges\\build-wc\\test.txt")
+	got := CountChars(pathToTestFile())
 
 	expected := 339292
 
