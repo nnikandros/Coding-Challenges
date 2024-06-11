@@ -2,7 +2,6 @@ package main
 
 import (
 	"os"
-	"path"
 	"path/filepath"
 	"testing"
 )
@@ -33,6 +32,7 @@ func assertCorrectResult(t testing.TB, got, expected int) {
 
 func pathToTestFile() string {
 	working_dir, _ := os.Getwd()
-	return filepath.Join(path.Dir(working_dir), "test.txt")
+	// path uses Unix for paths and does not deal with windows paths. use filepath dir
+	return filepath.Join(filepath.Dir(working_dir), "test.txt")
 
 }
