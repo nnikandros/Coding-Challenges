@@ -15,15 +15,16 @@ func main() {
 	// fmt.Println(cli_args)
 	// possibleFlags := map[string]bool{"-c": true, "-l": true, "-w": true, "-m": true}
 	// possibleFlags := []string{"-c", "-l", "-w", "-m"}
-
+	//if no options are provided use -c -l -w
 	// u := Contains(cli_args, "-c")
 	// fmt.Println(u)
 
 	// z := CalculateByteCount("/ec/local/home/nikanni/my-programming/coding-challeges/build-wc/test.txt")
-	z, err := CalculateByteCount(cli_args[1])
-	if err != nil {
-		fmt.Println(err)
-	}
+	// z, err := CalculateByteCount(cli_args[1])
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
 
-	fmt.Printf("%d", z)
+	// fmt.Printf("%d", z)
+	fmt.Println(cli_args)
 }
