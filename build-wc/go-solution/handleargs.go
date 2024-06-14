@@ -7,7 +7,8 @@ import (
 
 type ParsedArgs struct {
 	flagOptions []string
-	name        string
+	path        string
+	fileName    string
 }
 
 // var possibleFlags = []string{"-c", "-l", "-m", "-w"}
@@ -39,10 +40,10 @@ func HandleArguments(cli_args []string) ParsedArgs {
 		fmt.Printf("Error when given the file name %s, with error %v ", last, err)
 	}
 
-	fmt.Println(fileInfo)
+	if len(cli_args) == 1 {
 
-	fmt.Println(uptoLast)
-	fmt.Println(last)
+		return ParsedArgs{flagOptions: []string{"-c", "-l", "-w"}, path: last, fileName: fileInfo.Name()}
+	}
 
-	return ParsedArgs{flagOptions: uptoLast, name: last}
+	return ParsedArgs{flagOptions: uptoLast, path: last, fileName: fileInfo.Name()}
 }
