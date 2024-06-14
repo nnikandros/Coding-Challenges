@@ -10,7 +10,7 @@ type ParsedArgs struct {
 	name        string
 }
 
-var possibleFlags = []string{"-c", "-l", "-m", "-w"}
+// var possibleFlags = []string{"-c", "-l", "-m", "-w"}
 
 // var possibleFlags2 = map[string]bool{"-c": true, "-l": true, "-w": true, "-m": true}
 
@@ -21,15 +21,20 @@ var possibleFlags = []string{"-c", "-l", "-m", "-w"}
 3. Checks if the file exists
 */
 
-func HandleArguments(cli_args []string) {
+func HandleArguments(cli_args []string) ParsedArgs {
 
-	last, uptoLast := possibleFlags[len(possibleFlags)-1], possibleFlags[:len(possibleFlags)-1]
+	//Raise an error here
+	if len(cli_args) == 0 {
+		fmt.Println("no name of file was provided")
+	}
+	last, uptoLast := cli_args[len(cli_args)-1], cli_args[:len(cli_args)-1]
 
 	// if !strings.Contains(last, "test.txt") {
 
 	// }
 	fileInfo, err := os.Open(last)
 
+	// here return an error if the  file doesnt exist
 	if err != nil {
 		fmt.Printf("Error when given the file name %s, with error %v ", last, err)
 	}
@@ -38,4 +43,6 @@ func HandleArguments(cli_args []string) {
 
 	fmt.Println(uptoLast)
 	fmt.Println(last)
+
+	return ParsedArgs{flagOptions: uptoLast, name: last}
 }
