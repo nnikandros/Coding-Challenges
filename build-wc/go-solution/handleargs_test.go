@@ -13,9 +13,7 @@ func TestHandleArguments(t *testing.T) {
 		exampleArgs := []string{"-c", pathToTestFile()}
 		got := HandleArguments(exampleArgs)
 
-		fileInfo, _ := os.Open(pathToTestFile())
-
-		expected := ParsedArgs{flagOptions: []string{"-c"}, path: pathToTestFile(), fileName: fileInfo.Name()}
+		expected := ParsedArgs{flagOptions: []string{"-c"}, path: pathToTestFile()}
 		// assertCorrectResult(t, got, expected)
 		assertCorrectStruct(t, got, expected)
 	})
@@ -24,8 +22,7 @@ func TestHandleArguments(t *testing.T) {
 		exampleArgs := []string{"-l", pathToTestFile()}
 		got := HandleArguments(exampleArgs)
 
-		fileInfo, _ := os.Open(pathToTestFile())
-		expected := ParsedArgs{flagOptions: []string{"-l"}, path: pathToTestFile(), fileName: fileInfo.Name()}
+		expected := ParsedArgs{flagOptions: []string{"-l"}, path: pathToTestFile()}
 		assertCorrectStruct(t, got, expected)
 	})
 
@@ -33,9 +30,7 @@ func TestHandleArguments(t *testing.T) {
 		exampleArgs := []string{pathToTestFile()}
 		got := HandleArguments(exampleArgs)
 
-		fileInfo, _ := os.Open(pathToTestFile())
-
-		expected := ParsedArgs{flagOptions: []string{"-c", "-l", "-w"}, path: pathToTestFile(), fileName: fileInfo.Name()}
+		expected := ParsedArgs{flagOptions: []string{"-c", "-l", "-w"}, path: pathToTestFile()}
 		assertCorrectStruct(t, got, expected)
 	})
 

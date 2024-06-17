@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 type ParsedArgs struct {
@@ -33,17 +32,13 @@ func HandleArguments(cli_args []string) ParsedArgs {
 	// if !strings.Contains(last, "test.txt") {
 
 	// }
-	fileInfo, err := os.Open(last)
 
-	// here return an error if the  file doesnt exist
-	if err != nil {
-		fmt.Printf("Error when given the file name %s, with error %v ", last, err)
-	}
+	// here return an error if the  file doesnt exis
 
 	if len(cli_args) == 1 {
 
-		return ParsedArgs{flagOptions: []string{"-c", "-l", "-w"}, path: last, fileName: fileInfo.Name()}
+		return ParsedArgs{flagOptions: []string{"-c", "-l", "-w"}, path: last}
 	}
 
-	return ParsedArgs{flagOptions: uptoLast, path: last, fileName: fileInfo.Name()}
+	return ParsedArgs{flagOptions: uptoLast, path: last}
 }
